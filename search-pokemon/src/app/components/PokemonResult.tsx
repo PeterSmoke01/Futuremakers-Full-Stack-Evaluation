@@ -19,6 +19,7 @@ interface Pokemon {
   id: string;
   name: string;
   image: string;
+  types: string[];
   attacks: {
     special: SpecialAttack[];
   };
@@ -64,6 +65,13 @@ const PokemonResult: React.FC<PokemonResultProps> = ({
       {/* ส่วนรูปและชื่อ */}
       <div className="flex-shrink-0 text-center">
         <h2 className="text-3xl font-bold mb-2">{pokemon.name}</h2>
+        <div className="flex justify-center gap-2 mb-2">
+          {pokemon.types.map((type) => (
+            <span key={type} className="px-2 py-1 bg-gray-200 text-sm rounded">
+              {type}
+            </span>
+          ))}
+        </div>
         <img src={pokemon.image} alt={pokemon.name} className="w-48 h-48 mx-auto" />
       </div>
 

@@ -6,30 +6,7 @@ import { useQuery, gql } from "@apollo/client";
 
 import SearchInput from "./components/SearchInput";
 import PokemonResult from "./components/PokemonResult";
-
-// 1. กำหนด GraphQL Query ที่จะใช้
-// เราขอข้อมูลโปเกมอนด้วยชื่อ ($name) และระบุ field ที่ต้องการทั้งหมด
-const GET_POKEMON_QUERY = gql`
-  query GetPokemon($name: String!) {
-    pokemon(name: $name) {
-      id
-      name
-      image
-      attacks {
-        special {
-          name
-          type
-          damage
-        }
-      }
-      evolutions {
-        id
-        name
-        image
-      }
-    }
-  }
-`;
+import { GET_POKEMON_QUERY } from "./graphql/queries";
 
 export default function Home() {
   const router = useRouter();
