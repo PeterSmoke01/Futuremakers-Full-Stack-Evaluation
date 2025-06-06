@@ -1,49 +1,12 @@
 import React from "react";
-import { ApolloError } from "@apollo/client";
-
-// 1. กำหนด Type/Interface สำหรับข้อมูลที่จะรับเข้ามาให้ครบถ้วน
-// ซึ่งต้องตรงกับโครงสร้างของ GraphQL Query ที่เราเขียนไว้
-interface SpecialAttack {
-  name: string;
-  type: string;
-  damage: number;
-}
-
-interface Evolution {
-  id: string;
-  name: string;
-  image: string;
-}
-
-interface Pokemon {
-  id: string;
-  name: string;
-  image: string;
-  types: string[];
-  attacks: {
-    special: SpecialAttack[];
-  };
-  evolutions: Evolution[];
-}
-
-interface PokemonData {
-  pokemon: Pokemon | null;
-}
-
-interface PokemonResultProps {
-  loading: boolean;
-  error?: ApolloError;
-  data?: PokemonData;
-  onEvolutionClick: (pokemonName: string) => void;
-  searchedTerm: string | null;
-}
+import { PokemonResultProps } from "../types";
 
 const PokemonResult: React.FC<PokemonResultProps> = ({
   loading,
   error,
   data,
   onEvolutionClick,
-  searchedTerm, // 2. ดึง prop ออกมาใช้งาน
+  searchedTerm,
 }) => {
   // ถ้ายังไม่มีการค้นหา (searchedTerm เป็น null) ให้แสดงข้อความเริ่มต้น
   if (!searchedTerm) {
