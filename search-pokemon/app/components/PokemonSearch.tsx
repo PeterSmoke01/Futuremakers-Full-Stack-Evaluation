@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useQuery } from "@apollo/client";
-import { GET_POKEMON_QUERY } from "@/app/graphql/queries"; // import query ที่เราสร้างไว้
+import { GET_POKEMON_QUERY } from "../graphql/queries"; // import query ที่เราสร้างไว้
 
 import SearchInput from "./SearchInput";
 import PokemonResult from "./PokemonResult";
