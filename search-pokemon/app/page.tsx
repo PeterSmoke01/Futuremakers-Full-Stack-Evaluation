@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import PokemonSearch from "./components/PokemonSearch";
+import PokemonSearch from "../components/PokemonSearch";
 
 export default function Home() {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Home from '../app/page';
 import { MockedProvider } from '@apollo/client/testing';
-import { GET_POKEMON_QUERY } from '../app/graphql/queries';
+import { GET_POKEMON_QUERY } from '../graphql/queries';
 
 // Mock next/navigation
 const mockUseSearchParams = jest.fn();
