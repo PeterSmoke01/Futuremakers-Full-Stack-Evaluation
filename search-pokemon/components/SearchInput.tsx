@@ -1,11 +1,8 @@
 "use client"; // ต้องมี เพราะเราจะใช้ useState และ event handling
 
 import React, { useState } from "react";
+import type { SearchInputProps } from "../types";
 
-// กำหนดหน้าตาของ props ที่จะรับเข้ามา (เผื่อไว้สำหรับ Phase 4)
-interface SearchInputProps {
-  onSearch: (pokemonName: string) => void;
-}
 
 const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");

@@ -1,5 +1,5 @@
 import React from "react";
-import { PokemonResultProps } from "../types";
+import type { PokemonResultProps } from "../types";
 
 const PokemonResult: React.FC<PokemonResultProps> = ({
   loading,
@@ -8,7 +8,7 @@ const PokemonResult: React.FC<PokemonResultProps> = ({
   onEvolutionClick,
   searchedTerm,
 }) => {
-  // ถ้ายังไม่มีการค้นหา (searchedTerm เป็น null) ให้แสดงข้อความเริ่มต้น
+  // 1. ถ้ายังไม่มีการค้นหา (searchedTerm เป็น null) ให้แสดงข้อความเริ่มต้น
   if (!searchedTerm) {
     return (
       <div className="text-center text-gray-500 pt-8">
