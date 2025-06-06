@@ -32,6 +32,7 @@ export default function PokemonSearch() {
             error={error}
             data={data}
             onEvolutionClick={handleSearch}
+            searchedTerm={pokemonName}
           />
       </div>
     </>

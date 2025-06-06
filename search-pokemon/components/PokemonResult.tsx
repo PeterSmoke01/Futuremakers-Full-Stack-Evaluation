@@ -35,6 +35,7 @@ interface PokemonResultProps {
   error?: ApolloError;
   data?: PokemonData;
   onEvolutionClick: (pokemonName: string) => void;
+  searchedTerm: string | null;
 }
 
 const PokemonResult: React.FC<PokemonResultProps> = ({
@@ -42,13 +43,22 @@ const PokemonResult: React.FC<PokemonResultProps> = ({
   error,
   data,
   onEvolutionClick,
+  searchedTerm, // 2. ดึง prop ออกมาใช้งาน
 }) => {
+  // ถ้ายังไม่มีการค้นหา (searchedTerm เป็น null) ให้แสดงข้อความเริ่มต้น
+  if (!searchedTerm) {
+    return (
+      <div className="text-center text-gray-500 pt-8">
+        Please enter a Pokémon name to start searching.
+      </div>
+    );
+  }
   // 2. จัดการสถานะ Loading
   if (loading) {
     return <div className="text-center">Loading...</div>;
   }
 
-  // 3. จัดการสถานะ Error หรือ หาไม่เจอ (API จะ trả về data.pokemon เป็น null)
+  // 3. จัดการสถานะ Error หรือ หาไม่เจอ (API จะแสดง data.pokemon เป็น null)
   if (error || !data?.pokemon) {
     return (
       <div className="text-center text-red-500">
